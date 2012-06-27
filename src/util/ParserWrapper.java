@@ -25,7 +25,7 @@ public class ParserWrapper {
 	
 	public List<TypedDependency> getDependency(String[] sent){
 		List<CoreLabel> rawWords = Sentence.toCoreLabelList(sent);
-	    Tree parse = lp.apply(rawWords);
+		Tree parse = lp.apply(rawWords);
 		TreebankLanguagePack tlp = new ChineseTreebankLanguagePack();
 		GrammaticalStructureFactory gsf = tlp.grammaticalStructureFactory();
 		GrammaticalStructure gs = gsf.newGrammaticalStructure(parse);
@@ -46,7 +46,7 @@ public class ParserWrapper {
 		String[][] dependencyGraph = new String[size][size];
 		for(int i=1;i<size;i++)
 			for(int j=1;j<size;j++)
-				dependencyGraph[i][j] = null;
+				dependencyGraph[i][j] = "";
 		
 		for(TypedDependency td : tdl){
 			TreeGraphNode gov = td.gov();
